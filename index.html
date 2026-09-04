@@ -327,6 +327,10 @@
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
+    @keyframes rotate360 {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
     .carousel {
       position: relative;
       width: 100%;
@@ -515,7 +519,10 @@
 <body>
   <div class="phone">
     <header>
-      <img src="iconos/Juju_septiembre.svg" alt="Incentivos Septiembre - Reporte de Productos" style="width: 100%; height: auto; max-width: 300px; display: block; margin: 0 auto;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <img src="iconos/Juju_septiembre.svg" alt="Incentivos Septiembre - Reporte de Productos" style="width: 100%; height: auto; max-width: 270px; display: block;">
+        <img src="iconos/brillo.svg" alt="Brillo" style="width: 100%; height: auto; max-width: 40px; display: block; opacity: 0.6; animation: rotate360 3s linear infinite;">
+      </div>
     </header>
 
     <div id="menu" class="menu">
