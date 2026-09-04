@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <title>Incentivos Septiembre 2026 · JUJU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #06111f;
+      --bg-2: #0a1a30;
+      --glass: rgba(12, 28, 52, 0.55);
+      --stroke: rgba(180, 220, 255, 0.18);
+      --text: #f4f7fb;
+      --muted: rgba(220, 232, 245, 0.62);
+      --blue: #4cc3ff;
+      --green: #7dff8a;
+      --orange: #ff9a4a;
+      --purple: #c77dff;
+      --safe-b: env(safe-area-inset-bottom);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: Barlow, system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(120% 70% at 50% -10%, #1a4b7a 0%, transparent 55%),
+        radial-gradient(80% 50% at 110% 20%, #123a5c 0%, transparent 45%),
+        linear-gradient(180deg, #081627 0%, #050d18 100%);
+      overflow: hidden;
+    }
+    .phone {
+      min-height: 100dvh;
+      max-width: 430px;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+    .phone::-webkit-scrollbar {
+      width: 8px;
+    }
+    .phone::-webkit-scrollbar-track {
+      background: rgba(255,255,255,.05);
+    }
+    .phone::-webkit-scrollbar-thumb {
+      background: rgba(76,195,255,.4);
+      border-radius: 4px;
+    }
+    .phone::-webkit-scrollbar-thumb:hover {
+      background: rgba(76,195,255,.6);
+    }
+    .phone::before, .phone::after {
+      content: "";
+      position: absolute;
+      left: -20%;
+      right: -20%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+      box-shadow: 0 0 18px var(--blue);
+      pointer-events: none;
+      z-index: 4;
+    }
+    .phone::before { top: 18%; opacity: .35; }
+    .phone::after { bottom: 28%; opacity: .25; }
+    header {
+      padding: 18px 18px 8px;
+      position: relative;
+      z-index: 5;
+    }
+    h1 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 34px;
+      letter-spacing: .04em;
+      line-height: .9;
+      font-weight: 800;
+    }
+    .sub {
+      margin-top: 6px;
+      font-size: 12px;
+      letter-spacing: .18em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .rule {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0 6px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .22em;
+    }
+    .rule span { white-space: nowrap; }
+    .rule i {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 8px 18px;
+      flex: 1;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 0;
+      width: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .menu-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      width: 100%;
+      max-width: 380px;
+      justify-items: center;
+      align-items: center;
+    }
+    @keyframes floatBtn {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      padding: 12px;
+      font-size: 18px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,.3);
+      transition: transform .15s ease;
+      animation: floatBtn 4s ease-in-out infinite;
+      width: 100%;
+      height: 70px;
+      flex-shrink: 0;
+      max-width: 180px;
+    }
+    .menu-btn:nth-child(1) { animation-delay: 0s; }
+    .menu-btn:nth-child(2) { animation-delay: 0.8s; }
+    .menu-btn:nth-child(3) { animation-delay: 1.6s; }
+    .menu-btn:nth-child(4) { animation-delay: 2.4s; }
+    .menu-btn:active { transform: scale(.98); }
+    .menu-btn.gas { background: rgba(255,255,255,.15); box-shadow: inset 0 0 0 1px rgba(255,255,255,.3); }
+    .menu-btn.av  { background: rgba(255,255,255,.15); box-shadow: inset 0 0 0 1px rgba(255,255,255,.3); }
+    .menu-btn.ref { background: rgba(255,255,255,.15); box-shadow: inset 0 0 0 1px rgba(255,255,255,.3); }
+    .menu-btn.lav { background: rgba(255,255,255,.15); box-shadow: inset 0 0 0 1px rgba(255,255,255,.3); }
+    
+    .menu-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.3);
+      display: grid;
+      place-items: center;
+      flex: 0 0 42px;
+    }
+    .menu-btn.gas .menu-icon { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.1); }
+    .menu-btn.av  .menu-icon { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.1); }
+    .menu-btn.ref .menu-icon { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.1); }
+    .menu-btn.lav .menu-icon { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.1); }
+    .menu-icon svg { width: 30px; height: 30px; }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid var(--stroke);
+      color: #fff;
+      border-radius: 99px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      margin: 0 14px 8px;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+    .back-btn:active { background: rgba(255,255,255,.2); }
+    main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 4px 14px 110px;
+      position: relative;
+      z-index: 3;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .card {
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      backdrop-filter: blur(16px);
+      border-radius: 14px;
+      padding: 12px 12px 12px 14px;
+      min-height: 88px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .card:active { transform: scale(.98); }
+    .card.gas { box-shadow: 0 0 0 1px rgba(76,195,255,.15), 0 0 20px rgba(76,195,255,.09); }
+    .card.av  { box-shadow: 0 0 0 1px rgba(125,255,138,.15), 0 0 20px rgba(125,255,138,.09); }
+    .card.ref { box-shadow: 0 0 0 1px rgba(255,154,74,.15), 0 0 20px rgba(255,154,74,.09); }
+    .card.lav { box-shadow: 0 0 0 1px rgba(199,125,255,.15), 0 0 20px rgba(199,125,255,.09); }
+
+    /* ── Columna izquierda: precio ── */
+    .pay-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      flex: 0 0 auto;
+      min-width: 76px;
+      text-align: right;
+    }
+    .pay-label {
+      font-size: 9px;
+      letter-spacing: .18em;
+      color: var(--muted);
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+    .pay {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .card.gas .pay { color: var(--blue);   text-shadow: 0 0 14px rgba(76,195,255,.5); }
+    .card.av  .pay { color: var(--green);  text-shadow: 0 0 14px rgba(125,255,138,.45); }
+    .card.ref .pay { color: var(--orange); text-shadow: 0 0 14px rgba(255,154,74,.45); }
+    .card.lav .pay { color: var(--purple); text-shadow: 0 0 14px rgba(199,125,255,.45); }
+
+    /* divisor vertical */
+    .divider {
+      width: 1px;
+      align-self: stretch;
+      background: var(--stroke);
+      flex: 0 0 1px;
+      margin: 2px 0;
+    }
+
+    /* ── Icono ── */
+    .icon {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+    }
+    .card.gas .icon { background: rgba(76,195,255,.1); }
+    .card.av  .icon { background: rgba(125,255,138,.1); }
+    .card.ref .icon { background: rgba(255,154,74,.1); }
+    .card.lav .icon { background: rgba(199,125,255,.1); }
+    .icon svg { width: 22px; height: 22px; }
+
+    /* ── Meta: nombre + condición ── */
+    .meta { flex: 1; min-width: 0; }
+    .name {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 16px;
+      letter-spacing: .02em;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+    .cond {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    .star-wrap { width: 44px; height: 44px; flex: 0 0 44px; overflow: visible; position: relative; }
+
+    /* ── Animaciones estrella ── */
+    @keyframes starSpin {
+      0%   { transform: rotate(0deg)   scale(1);   filter: drop-shadow(0 0 4px var(--glow-color)); }
+      25%  { transform: rotate(90deg)  scale(1.1);  filter: drop-shadow(0 0 10px var(--glow-color)); }
+      50%  { transform: rotate(180deg) scale(1.18); filter: drop-shadow(0 0 16px var(--glow-color)) drop-shadow(0 0 28px var(--glow-color)); }
+      75%  { transform: rotate(270deg) scale(1.1);  filter: drop-shadow(0 0 10px var(--glow-color)); }
+      100% { transform: rotate(360deg) scale(1);    filter: drop-shadow(0 0 4px var(--glow-color)); }
+    }
+    @keyframes orbitSlow {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes frostBurst {
+      0%   { opacity: 0; transform: translate(0,0) scale(0); }
+      20%  { opacity: 1; transform: translate(var(--fx), var(--fy)) scale(1); }
+      70%  { opacity: .6; transform: translate(calc(var(--fx)*1.8), calc(var(--fy)*1.8)) scale(.7); }
+      100% { opacity: 0; transform: translate(calc(var(--fx)*2.4), calc(var(--fy)*2.4)) scale(0); }
+    }
+    @keyframes twinkle1 {
+      0%, 100% { opacity: 0; transform: scale(0); }
+      50%      { opacity: 1; transform: scale(1); }
+    }
+    @keyframes crossFlash {
+      0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+      30%      { opacity: 1; transform: scale(1.3) rotate(20deg); }
+      60%      { opacity: .5; transform: scale(.8) rotate(45deg); }
+    }
+    @keyframes slideLeft {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      height: 700px;
+      overflow: hidden;
+      border-radius: 14px;
+      margin-bottom: 16px;
+    }
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .carousel-indicators {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 5;
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .carousel-dot.active {
+      background: var(--blue);
+      box-shadow: 0 0 8px var(--blue);
+      transform: scale(1.2);
+    }
+    .star-wrap svg.star-main {
+      animation: starSpin 3s ease-in-out infinite;
+    }
+    .star-wrap .sparkle-ring {
+      position: absolute; inset: -6px; pointer-events: none;
+      animation: orbitSlow 6s linear infinite;
+    }
+    .star-wrap .sparkle-ring circle {
+      animation: twinkle1 1.4s ease-in-out infinite;
+    }
+    .star-wrap .sparkle-ring .sp1 { animation-delay: 0s; }
+    .star-wrap .sparkle-ring .sp2 { animation-delay: .35s; }
+    .star-wrap .sparkle-ring .sp3 { animation-delay: .7s; }
+    .star-wrap .sparkle-ring .sp4 { animation-delay: 1.05s; }
+    .star-wrap .sparkle-ring .sp5 { animation-delay: .2s; }
+    .star-wrap .sparkle-ring .sp6 { animation-delay: .55s; }
+    .star-wrap .frost-particles {
+      position: absolute; inset: -10px; pointer-events: none;
+    }
+    .star-wrap .frost-particles .frost {
+      position: absolute;
+      left: 50%; top: 50%;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0 0 4px white, 0 0 8px rgba(255,255,255,.6);
+      animation: frostBurst 2s ease-out infinite;
+    }
+    .star-wrap .frost-particles .frost:nth-child(1)  { --fx:  12px; --fy: -16px; animation-delay: 0s; }
+    .star-wrap .frost-particles .frost:nth-child(2)  { --fx: -14px; --fy: -10px; animation-delay: .3s; }
+    .star-wrap .frost-particles .frost:nth-child(3)  { --fx:  16px; --fy:   6px; animation-delay: .6s; }
+    .star-wrap .frost-particles .frost:nth-child(4)  { --fx: -10px; --fy:  14px; animation-delay: .9s; }
+    .star-wrap .frost-particles .frost:nth-child(5)  { --fx:   4px; --fy:  18px; animation-delay: 1.2s; }
+    .star-wrap .frost-particles .frost:nth-child(6)  { --fx:  18px; --fy:  -4px; animation-delay: 1.5s; }
+    .star-wrap .frost-particles .frost:nth-child(7)  { --fx: -18px; --fy:   2px; animation-delay: .15s; }
+    .star-wrap .frost-particles .frost:nth-child(8)  { --fx:   8px; --fy: -18px; animation-delay: .75s; }
+    .star-wrap .cross-sparkle {
+      position: absolute; inset: -4px; pointer-events: none;
+      animation: crossFlash 2.4s ease-in-out infinite;
+      animation-delay: .4s;
+    }
+    .go {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      opacity: .4;
+      font-size: 11px;
+    }
+    footer {
+      position: relative;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      background: rgba(8, 18, 32, .72);
+      border-top: 1px solid var(--stroke);
+      backdrop-filter: blur(18px);
+      padding: 8px 0 calc(8px + var(--safe-b));
+    }
+    .foot-title { font-size: 10px; letter-spacing: .16em; color: var(--muted); margin-bottom: 4px; }
+    .sheet {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      background: rgba(3,8,16,.55);
+      display: none;
+      align-items: flex-end;
+    }
+    .sheet.open { display: flex; }
+    .panel {
+      width: 100%;
+      max-height: 78%;
+      overflow: auto;
+      background: linear-gradient(180deg, #10243c, #0a1626);
+      border-top: 1px solid var(--stroke);
+      border-radius: 22px 22px 0 0;
+      padding: 16px 18px calc(24px + var(--safe-b));
+    }
+    .handle {
+      width: 42px; height: 4px; border-radius: 99px; background: #3a5570; margin: 0 auto 14px;
+    }
+    .panel h2 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 26px;
+      line-height: 1;
+    }
+    .badge {
+      display: inline-block;
+      margin: 8px 0 12px;
+      font-size: 11px;
+      letter-spacing: .12em;
+      padding: 4px 10px;
+      border-radius: 99px;
+      border: 1px solid var(--stroke);
+    }
+    .big {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      margin: 8px 0 4px;
+    }
+    .hint { color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .close {
+      margin-top: 16px;
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      padding: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .fab {
+      position: relative;
+      background: rgba(8, 18, 32, .85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--stroke);
+      color: var(--blue);
+      border-radius: 99px;
+      padding: 10px 24px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      box-shadow: 0 4px 12px rgba(0,0,0,.4);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-transform: uppercase;
+      transition: transform .18s;
+      margin: 0;
+      z-index: 10;
+      white-space: nowrap;
+    }
+    .fab:active { transform: scale(.95); }
+    .fab svg { width: 14px; height: 14px; }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <header>
+      <img src="iconos/Juju_septiembre.svg" alt="Incentivos Septiembre - Reporte de Productos" style="width: 100%; height: auto; max-width: 300px; display: block; margin: 0 auto;">
+    </header>
+
+    <div id="menu" class="menu">
+      <div class="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <img src="Imagenes/82168e66-d248-403c-bcd0-ace0f135ae3f___07d342f3459b0c4ffdef13543ddcbc28.webp" class="carousel-slide" alt="Slide 1">
+          <img src="Imagenes/ce87cc8d-c9eb-44fd-9374-67ad087faf4f___2ac99004e3e9fc4c387950538df5269c.webp" class="carousel-slide" alt="Slide 2">
+          <img src="Imagenes/d248bba2-d3b6-470f-bf8f-baede7e1c265___8307d0d2e029606756edcad9d4c7ddab.webp" class="carousel-slide" alt="Slide 3">
+          <img src="Imagenes/d2e7b006-9fce-4160-8e72-d16bfd0e3695___497f9c17ccdf1e82c4fcbc32ccdf7a69.webp" class="carousel-slide" alt="Slide 4">
+        </div>
+        <div class="carousel-indicators" id="carouselIndicators"></div>
+      </div>
+    </div>
+    <button id="backBtn" class="back-btn" style="display:none;" onclick="showMenu()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:-2px"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      Volver al Menú
+    </button>
+    <main id="grid" class="grid"></main>
+
+    <footer>
+      <button class="fab" onclick="openTerms()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Ver Términos & Condiciones
+      </button>
+      <img src="iconos/Condiciones.svg" alt="Condiciones" style="height: 165px; width: 100%; max-width: none; object-fit: contain; display: block; margin: 0 -18px;">
+      <img src="iconos/challenger_logo.svg" alt="Challenger" style="width: 100%; height: auto; max-width: 100%; display: block; animation: slideLeft 8s linear infinite; margin: 20px 0;">
+    </footer>
+
+    <div class="sheet" id="sheet">
+      <div class="panel" id="panel"></div>
+    </div>
+  </div>
+
+  <script>
+    const money = (n) => "$ " + n.toLocaleString("es-CO");
+    const data = [
+      { id: 1, cat: "gas", catName: "Gasodomésticos", name: "Cocinas", cond: "Precio > $300.000", pay: 4000, note: "Aplica a cocinas con precio de venta superior a $300.000." },
+      { id: 2, cat: "gas", catName: "Gasodomésticos", name: "Cocinas", cond: "Precio > $450.000", pay: 6000, note: "Aplica a cocinas con precio de venta superior a $450.000." },
+      { id: 3, cat: "gas", catName: "Gasodomésticos", name: "Hornos y microondas", cond: "Hornos > $800.000 · Microondas", pay: 6000, note: "Hornos por encima de $800.000 y microondas." },
+      { id: 4, cat: "gas", catName: "Gasodomésticos", name: "Campanas", cond: "> $200.000 y < $350.000", pay: 3000, note: "Campanas entre más de $200.000 y menos de $350.000." },
+      { id: 5, cat: "gas", catName: "Gasodomésticos", name: "Campanas", cond: "> $350.000", pay: 4000, note: "Campanas con precio superior a $350.000." },
+      { id: 6, cat: "gas", catName: "Gasodomésticos", name: "Estufa piso", cond: "SI9461 · SI9462 · SI9571 · SI9572", pay: 15000, note: "Referencias SI9461, SI9462, SI9571 y SI9572." },
+      { id: 7, cat: "gas", catName: "Gasodomésticos", name: "Estufa piso", cond: "SI9575 · SI9576 · SI9465 · SI9466", pay: 20000, note: "Referencias SI9575, SI9576, SI9465 y SI9466." },
+      { id: 8, cat: "gas", catName: "Gasodomésticos", name: "Calentadores", cond: "Todas las referencias", pay: 12000, note: "Incentivo fijo por calentadores." },
+      { id: 9, cat: "gas", catName: "Gasodomésticos", name: "Mesones y pocetas", cond: "Todas las referencias", pay: 20000, note: "Incentivo fijo por mesones y pocetas." },
+      { id: 10, cat: "gas", catName: "Gasodomésticos", name: "Lavavajillas", cond: "Todas las referencias", pay: 20000, note: "Lavavajillas queda en Gasodomésticos, como en el brief original." },
+      { id: 11, cat: "av", catName: "Video y audio", name: 'Televisores 32"', cond: "Cantidad > 3", pay: 6000, note: "Se activa al vender más de 3 unidades de 32 pulgadas." },
+      { id: 12, cat: "av", catName: "Video y audio", name: 'Televisores 40"', cond: "Cantidad > 4", pay: 10000, note: "Se activa al vender más de 4 unidades de 40 pulgadas." },
+      { id: 13, cat: "av", catName: "Video y audio", name: 'Televisores 43"', cond: "1 a 4 unidades", pay: 4000, note: "Tramo inicial: de 1 a 4 televisores de 43 pulgadas." },
+      { id: 14, cat: "av", catName: "Video y audio", name: 'Televisores 43"', cond: "≥ 5 unidades", pay: 10000, note: "Tramo alto: 5 o más televisores de 43 pulgadas." },
+      { id: 15, cat: "av", catName: "Video y audio", name: 'Televisores 50" a 58"', cond: "1 a 4 unidades", pay: 8000, note: "Tramo inicial para 50 a 58 pulgadas." },
+      { id: 16, cat: "av", catName: "Video y audio", name: 'Televisores 50" a 58"', cond: "≥ 5 unidades", pay: 12000, note: "Tramo alto: 5 o más unidades de 50 a 58 pulgadas." },
+      { id: 17, cat: "av", catName: "Video y audio", name: 'Televisores 65"', cond: "1 a 5 unidades", pay: 10000, note: "Tramo inicial de 65 pulgadas." },
+      { id: 18, cat: "av", catName: "Video y audio", name: 'Televisores 65"', cond: "≥ 6 unidades", pay: 20000, note: "Tramo alto: 6 o más televisores de 65 pulgadas." },
+      { id: 19, cat: "av", catName: "Video y audio", name: 'Televisores 75"', cond: "1 a 2 unidades", pay: 15000, note: "Tramo inicial de 75 pulgadas." },
+      { id: 20, cat: "av", catName: "Video y audio", name: 'Televisores 75"', cond: "≥ 3 unidades", pay: 25000, note: "Tramo alto: 3 o más televisores de 75 pulgadas." },
+      { id: 21, cat: "av", catName: "Video y audio", name: 'Televisores 100"', cond: "Sin tramo de cantidad", pay: 50000, note: "El mayor incentivo del mes. Televisor 100 pulgadas." },
+      { id: 22, cat: "av", catName: "Video y audio", name: "Audio", cond: "Línea de audio", pay: 10000, note: "Incentivo de la línea de audio." },
+      { id: 23, cat: "ref", catName: "Refrigeración", name: "Aires acondicionados", cond: "Todas las referencias", pay: 10000, note: "Incentivo fijo por aires acondicionados." },
+      { id: 24, cat: "ref", catName: "Refrigeración", name: "Minibares", cond: "Todos", pay: 6000, note: "Aplica a todos los minibares." },
+      { id: 25, cat: "ref", catName: "Refrigeración", name: "Doméstica", cond: "Línea doméstica", pay: 7000, note: "Refrigeración doméstica." },
+      { id: 26, cat: "ref", catName: "Refrigeración", name: "E-cool", cond: "478 · 415 · 385", pay: 10000, note: "Referencias E-cool 478, 415 y 385." },
+      { id: 27, cat: "ref", catName: "Refrigeración", name: "E-cool / SBS", cond: "482-420 / SBS 430-525-513-628-502", pay: 12000, note: "E-cool 482 y 420, más SBS 430, 525, 513, 628 y 502." },
+      { id: 28, cat: "ref", catName: "Refrigeración", name: "Congeladores", cond: "Todas las referencias", pay: 8000, note: "Incentivo fijo por congeladores." },
+      { id: 29, cat: "lav", catName: "Lavado", name: "Lavadoras", cond: "CW 5711-13-15-18 / CW 8014", pay: 12000, note: "Referencias CW 5711, 5713, 5715, 5718 y CW 8014." }
+    ];
+
+    const icons = {
+      gas: `<img src="logos_categorias/gasodomesticos.svg" alt="Gasodomésticos" style="width:100%;height:100%;object-fit:contain;">`,
+      av: `<img src="logos_categorias/television.svg" alt="Video & Audio" style="width:100%;height:100%;object-fit:contain;">`,
+      ref: `<img src="logos_categorias/refrigeracion.svg" alt="Refrigeración" style="width:100%;height:100%;object-fit:contain;">`,
+      lav: `<img src="logos_categorias/lavado.svg" alt="Lavado" style="width:100%;height:100%;object-fit:contain;">`
+    };
+
+    const starIcon = (pay, color) => {
+      const max = 50000;
+      const size = 0.7 + (pay / max) * 0.5;
+      const delay = (Math.random() * 1.2).toFixed(2);
+      // Estrella dorada con glow del color de categoría
+      return `<div class="star-wrap" style="--glow-color:${color}">
+        <svg class="star-main" viewBox="0 0 44 44" width="44" height="44" style="animation-delay:${delay}s">
+          <defs>
+            <linearGradient id="starGold${pay}" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff7b0"/>
+              <stop offset="35%" stop-color="#ffe566"/>
+              <stop offset="65%" stop-color="#ffcc00"/>
+              <stop offset="100%" stop-color="#e6a800"/>
+            </linearGradient>
+            <filter id="glow-${pay}">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <g transform="translate(22,22) scale(${size.toFixed(2)})" filter="url(#glow-${pay})">
+            <polygon points="0,-14 4,-5 13,-5 6,2 8,12 0,6 -8,12 -6,2 -13,-5 -4,-5" fill="url(#starGold${pay})" stroke="#d4960066" stroke-width=".6"/>
+            <polygon points="0,-14 4,-5 13,-5 6,2 8,12 0,6 -8,12 -6,2 -13,-5 -4,-5" fill="rgba(255,255,255,.22)" clip-path="inset(0 0 50% 0)"/>
+          </g>
+        </svg>
+        <svg class="sparkle-ring" viewBox="0 0 56 56" width="56" height="56">
+          <circle class="sp1" cx="28" cy="2"  r="2" fill="white"/>
+          <circle class="sp2" cx="54" cy="28" r="1.6" fill="white"/>
+          <circle class="sp3" cx="28" cy="54" r="1.8" fill="white"/>
+          <circle class="sp4" cx="2"  cy="28" r="1.4" fill="white"/>
+          <circle class="sp5" cx="46" cy="8"  r="1.2" fill="rgba(255,255,255,.8)"/>
+          <circle class="sp6" cx="8"  cy="46" r="1.3" fill="rgba(255,255,255,.8)"/>
+        </svg>
+        <div class="frost-particles">
+          <span class="frost"></span>
+          <span class="frost"></span>
+          <span class="frost"></span>
+          <span class="frost"></span>
+          <span class="frost"></span>
+          <span class="frost"></span>
+          <span class="frost"></span>
+          <span class="frost"></span>
+        </div>
+        <svg class="cross-sparkle" viewBox="0 0 52 52" width="52" height="52">
+          <line x1="26" y1="2" x2="26" y2="14" stroke="white" stroke-width="1.4" stroke-linecap="round" opacity=".8"/>
+          <line x1="20" y1="8" x2="32" y2="8" stroke="white" stroke-width="1.4" stroke-linecap="round" opacity=".8"/>
+          <line x1="40" y1="36" x2="40" y2="46" stroke="rgba(255,255,255,.7)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="35" y1="41" x2="45" y2="41" stroke="rgba(255,255,255,.7)" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </div>`;
+    };
+
+    const colors = { gas: "#4cc3ff", av: "#7dff8a", ref: "#ff9a4a", lav: "#c77dff" };
+    const cats = [
+      { id: "gas", label: "Gasodomésticos" },
+      { id: "av", label: "Video & Audio" },
+      { id: "ref", label: "Refrigeración" },
+      { id: "lav", label: "Lavado" }
+    ];
+
+    function showMenu() {
+      document.getElementById("grid").style.display = "none";
+      document.getElementById("backBtn").style.display = "none";
+      const menu = document.getElementById("menu");
+      menu.style.display = "flex";
+      menu.innerHTML = `
+        <div class="carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <img src="Imagenes/82168e66-d248-403c-bcd0-ace0f135ae3f___07d342f3459b0c4ffdef13543ddcbc28.webp" class="carousel-slide" alt="Slide 1">
+            <img src="Imagenes/ce87cc8d-c9eb-44fd-9374-67ad087faf4f___2ac99004e3e9fc4c387950538df5269c.webp" class="carousel-slide" alt="Slide 2">
+            <img src="Imagenes/d248bba2-d3b6-470f-bf8f-baede7e1c265___8307d0d2e029606756edcad9d4c7ddab.webp" class="carousel-slide" alt="Slide 3">
+            <img src="Imagenes/d2e7b006-9fce-4160-8e72-d16bfd0e3695___497f9c17ccdf1e82c4fcbc32ccdf7a69.webp" class="carousel-slide" alt="Slide 4">
+          </div>
+          <div class="carousel-indicators" id="carouselIndicators"></div>
+        </div>
+        <div class="menu-buttons">
+          ${cats.map(c => `
+            <button class="menu-btn ${c.id}" onclick="openCategory('${c.id}')">
+              <div class="menu-icon">${icons[c.id]}</div>
+              ${c.label}
+            </button>
+          `).join("")}
+        </div>
+      `;
+      initCarousel();
+    }
+
+    function openCategory(catId) {
+      document.getElementById("menu").style.display = "none";
+      document.getElementById("backBtn").style.display = "inline-flex";
+      const grid = document.getElementById("grid");
+      grid.style.display = "grid";
+      const list = data.filter(d => d.cat === catId);
+      grid.innerHTML = list.map((item) => `
+        <article class="card ${item.cat}" data-id="${item.id}">
+          <span class="go">›</span>
+          <div class="icon">${icons[item.cat]}</div>
+          <div class="meta">
+            <div class="name">${item.name}</div>
+            <div class="cond">${item.cond}</div>
+          </div>
+          <div class="divider"></div>
+          <div class="pay-col">
+            <span class="pay-label">PTOS</span>
+            <span class="pay">${money(item.pay)}</span>
+          </div>
+          ${starIcon(item.pay, colors[item.cat])}
+        </article>
+      `).join("");
+      grid.querySelectorAll(".card").forEach((card) => {
+        card.onclick = () => openSheet(Number(card.dataset.id));
+      });
+
+
+    }
+
+
+
+    function openSheet(id) {
+      const item = data.find((d) => d.id === id);
+      const sheet = document.getElementById("sheet");
+      document.getElementById("panel").innerHTML = `
+        <div class="handle"></div>
+        <h2>${item.name}</h2>
+        <div class="badge">${item.catName.toUpperCase()}</div>
+        <div class="big" style="color:${colors[item.cat]}">${money(item.pay)}</div>
+        <p class="hint"><strong>Condición:</strong> ${item.cond}</p>
+        <p class="hint" style="margin-top:8px">${item.note}</p>
+        <p class="hint" style="margin-top:10px">Fuente: brief de incentivos septiembre 2026. El valor es el incentivo por cumplimiento, no una meta de ventas.</p>
+        <button class="close" style="background:${colors[item.cat]};color:#06111f">Cerrar</button>
+      `;
+      sheet.classList.add("open");
+      sheet.querySelector(".close").onclick = () => sheet.classList.remove("open");
+      sheet.onclick = (e) => { if (e.target === sheet) sheet.classList.remove("open"); };
+    }
+
+    function openTerms() {
+      const sheet = document.getElementById("sheet");
+      document.getElementById("panel").innerHTML = `
+        <div class="handle"></div>
+        <h2 style="font-size: 22px; margin-bottom: 16px; color: #fff;">TÉRMINOS Y CONDICIONES</h2>
+        <ol style="color: var(--muted); font-size: 13px; line-height: 1.5; padding-left: 18px; text-align: left; display: flex; flex-direction: column; gap: 10px;">
+          <li>Acumula puntos a partir de 6 unidades participantes.</li>
+          <li>Los puntos especiales solo aplican si se cumple el mínimo de 6 Und de la categoría y las mismas unidades en televisión y campanas.</li>
+          <li>Aplica solo para las referencias publicadas en esta pieza.</li>
+          <li>Aplica a partir del 1 al 30 de Septiembre del 2026.</li>
+          <li>No válido para ventas mayoristas, ni institucionales.</li>
+          <li>No acumulan puntos el personal administrativo, bodegueros, dueños, administradores de los almacenes.</li>
+          <li>Se puede acumular puntos por máximo 40 unidades por vendedor en la liquidación.</li>
+          <li>En caso de encontrar inconsistencia en los reportes, se sanciona la cuenta por 3 meses, es decir, no se acumularán puntos durante ese periodo.</li>
+          <li>Los reportes deberán ser enviados por la gerencia de cuenta o administradores de punto de venta, estos deben ser enviados a más tardar el día 5 luego de finalizado el periodo a reportar.</li>
+          <li>Los clientes tienen máximo hasta la siguiente liquidación para reportar cualquier reclamación respecto al plan, este deberá reportarse en el formato diseñado para tal fin. No se aceptará ninguna excepción por ningún concepto.</li>
+          <li>Aplica términos y condiciones de plataforma JUJU.</li>
+          <li>La acumulación de puntos bajo esta dinámica no representa ninguna relación entre Challenger y los ganadores de los puntos, más allá de la relación comercial con el cliente.</li>
+        </ol>
+        <button class="close" style="background:var(--blue);color:#06111f;margin-top:20px;">Cerrar</button>
+      `;
+      sheet.classList.add("open");
+      sheet.querySelector(".close").onclick = () => sheet.classList.remove("open");
+      sheet.onclick = (e) => { if (e.target === sheet) sheet.classList.remove("open"); };
+    }
+
+    let currentSlide = 0;
+    let carouselInterval;
+
+    function initCarousel() {
+      const track = document.getElementById("carouselTrack");
+      const indicators = document.getElementById("carouselIndicators");
+      const slides = track.querySelectorAll(".carousel-slide");
+      const totalSlides = slides.length;
+
+      // Crear indicadores
+      indicators.innerHTML = "";
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("div");
+        dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+        dot.onclick = () => goToSlide(i);
+        indicators.appendChild(dot);
+      }
+
+      // Limpiar intervalo anterior si existe
+      if (carouselInterval) clearInterval(carouselInterval);
+
+      // Iniciar autoplay
+      carouselInterval = setInterval(() => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+      }, 4000);
+
+      function updateCarousel() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        const dots = indicators.querySelectorAll(".carousel-dot");
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("active", index === currentSlide);
+        });
+      }
+
+      function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+        // Reiniciar el intervalo al hacer clic manual
+        clearInterval(carouselInterval);
+        carouselInterval = setInterval(() => {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          updateCarousel();
+        }, 4000);
+      }
+    }
+
+    showMenu();
+  </script>
+</body>
+</html>
