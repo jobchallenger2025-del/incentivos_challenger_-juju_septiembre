@@ -257,7 +257,7 @@
     }
     .pay {
       font-family: "Barlow Condensed", sans-serif;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 800;
       white-space: nowrap;
       line-height: 1;
@@ -569,7 +569,7 @@
   </div>
 
   <script>
-    const money = (n) => "$ " + n.toLocaleString("es-CO");
+    const money = (n) => String(parseInt(n / 1000));
     const data = [
       { id: 1, cat: "gas", catName: "Gasodomésticos", name: "Cocinas", cond: "Precio > $300.000", pay: 4000, note: "Aplica a cocinas con precio de venta superior a $300.000." },
       { id: 2, cat: "gas", catName: "Gasodomésticos", name: "Cocinas", cond: "Precio > $450.000", pay: 6000, note: "Aplica a cocinas con precio de venta superior a $450.000." },
