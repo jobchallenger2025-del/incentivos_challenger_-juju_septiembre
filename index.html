@@ -22,7 +22,7 @@
       --safe-b: env(safe-area-inset-bottom);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
+    html { min-height: 100%; }
     body {
       font-family: Barlow, system-ui, sans-serif;
       color: var(--text);
@@ -30,17 +30,19 @@
         radial-gradient(120% 70% at 50% -10%, #1a4b7a 0%, transparent 55%),
         radial-gradient(80% 50% at 110% 20%, #123a5c 0%, transparent 45%),
         linear-gradient(180deg, #081627 0%, #050d18 100%);
-      overflow: hidden;
+      min-height: 100%;
+      height: auto;
+      overflow-y: auto;
     }
     .phone {
-      min-height: 100dvh;
+      min-height: 100%;
       max-width: 430px;
       margin: 0 auto;
       position: relative;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
     .phone::-webkit-scrollbar {
       width: 8px;
@@ -519,10 +521,10 @@
     <div id="menu" class="menu">
       <div class="carousel">
         <div class="carousel-track" id="carouselTrack">
-          <img src="Imagenes/82168e66-d248-403c-bcd0-ace0f135ae3f___07d342f3459b0c4ffdef13543ddcbc28.webp" class="carousel-slide" alt="Slide 1">
-          <img src="Imagenes/ce87cc8d-c9eb-44fd-9374-67ad087faf4f___2ac99004e3e9fc4c387950538df5269c.webp" class="carousel-slide" alt="Slide 2">
-          <img src="Imagenes/d248bba2-d3b6-470f-bf8f-baede7e1c265___8307d0d2e029606756edcad9d4c7ddab.webp" class="carousel-slide" alt="Slide 3">
-          <img src="Imagenes/d2e7b006-9fce-4160-8e72-d16bfd0e3695___497f9c17ccdf1e82c4fcbc32ccdf7a69.webp" class="carousel-slide" alt="Slide 4">
+          <img src="Imagenes/001.webp" class="carousel-slide" alt="Slide 1">
+          <img src="Imagenes/002.webp" class="carousel-slide" alt="Slide 2">
+          <img src="Imagenes/003.webp" class="carousel-slide" alt="Slide 3">
+          <img src="Imagenes/004.webp" class="carousel-slide" alt="Slide 4">
         </div>
         <div class="carousel-indicators" id="carouselIndicators"></div>
       </div>
@@ -655,10 +657,10 @@
       menu.innerHTML = `
         <div class="carousel">
           <div class="carousel-track" id="carouselTrack">
-            <img src="Imagenes/82168e66-d248-403c-bcd0-ace0f135ae3f___07d342f3459b0c4ffdef13543ddcbc28.webp" class="carousel-slide" alt="Slide 1">
-            <img src="Imagenes/ce87cc8d-c9eb-44fd-9374-67ad087faf4f___2ac99004e3e9fc4c387950538df5269c.webp" class="carousel-slide" alt="Slide 2">
-            <img src="Imagenes/d248bba2-d3b6-470f-bf8f-baede7e1c265___8307d0d2e029606756edcad9d4c7ddab.webp" class="carousel-slide" alt="Slide 3">
-            <img src="Imagenes/d2e7b006-9fce-4160-8e72-d16bfd0e3695___497f9c17ccdf1e82c4fcbc32ccdf7a69.webp" class="carousel-slide" alt="Slide 4">
+            <img src="Imagenes/001.webp" class="carousel-slide" alt="Slide 1">
+            <img src="Imagenes/002.webp" class="carousel-slide" alt="Slide 2">
+            <img src="Imagenes/003.webp" class="carousel-slide" alt="Slide 3">
+            <img src="Imagenes/004.webp" class="carousel-slide" alt="Slide 4">
           </div>
           <div class="carousel-indicators" id="carouselIndicators"></div>
         </div>
